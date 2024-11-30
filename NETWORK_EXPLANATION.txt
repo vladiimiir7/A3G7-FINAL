@@ -1,0 +1,21 @@
+- Subnet: 192.168.1.0/24
+- Static IPs:
+  - Flask App (app): 192.168.1.100
+  - MySQL Database (db): 192.168.1.101
+
+How Overlapping Subnets Could Impact the Host System
+
+If the Docker network is the same as the host machine’s physical network, both the host and Docker containers may 
+assign the same IP addresses to different devices or services. This would interfere with the communication between 
+the host and the containers, and the host with other devices.
+
+Also when the host and Docker uses the same IP range as the host system, it may not differentiate between packets 
+destined to the containers and packets destined to other devices. For instance, if the host sends a request to 
+192.168.1.100, then it will not know whether to forward the request to a Docker container or any physical device in 
+the network.
+
+DNS resolution in Docker.
+
+Containers can find each other by their service names according to the docker-compose.yml file. For instance, Flask 
+app can interact with the MySQL database through the use of the word ‘db’. Static IPs are good for debugging but 
+otherwise are not very useful as services can always use names instead of IPs thanks to DNS resolution.
