@@ -1,0 +1,11 @@
+Importance of .gitignore for .env files.
+
+This includes credential details and other configuration details and this is why the .env file holds secure data. 
+The use of .env file in .gitignore list means that it is not tracked by git and one cannot commit or push it to the 
+git repository. This means that if this file is placed in a repository anyone can get access to the systems or data 
+that should be protected.
+
+Risks of exposing credentials.
+1. You minimize the chances of exposing secrets.
+2. You keep credentials out of sight, while the repository is clean and can be easily shared with others.
+
